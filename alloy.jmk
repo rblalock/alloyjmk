@@ -11,7 +11,7 @@ task("pre:compile", function(event,logger) {
     	// no theme defined but a default TiApp.xml defined
     	logger.info("---- Using the default tiapp.xml file ----");
     	alloyCfg.global.theme = "default";
-    } else {
+    } else if (!alloyCfg.global.appConfig[event.alloyConfig.platform].default) {
     	return;
     }
 
