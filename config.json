@@ -1,0 +1,25 @@
+{
+    "global": {
+        "appConfig": {            
+            "ios": {
+                "default": "tiapp_default.xml",
+                "app2": "tiapp_app2.xml",
+                "app3": "tiapp_app3.xml"
+            },
+            "android": {
+                "default": "tiapp_default.xml",
+                "app2": "tiapp_app2.xml",
+                "app3": "tiapp_app3.xml"
+            }
+        },
+        "theme": "app2"
+    },
+    "env:development": {},
+    "env:test": {},
+    "env:production": {},
+    "os:android": {},
+    "os:blackberry": {},
+    "os:ios": {},
+    "os:mobileweb": {},
+    "dependencies": {}
+}
