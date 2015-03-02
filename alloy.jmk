@@ -1,0 +1,32 @@
+
+task("pre:compile", function(event,logger) {
+	var fs = require("fs");
+
+	// get the alloy config
+    var alloyCfg = JSON.parse(fs.readFileSync(event.dir.home + "/config.json", "utf-8"));
+
+    // check if no theme is defined, this could mean it's a themeless project BUT
+    // if there is an alloyConfig property and default set, we assume blank = default
+    if (!alloyCfg.global.theme && alloyCfg.global.appConfig[event.alloyConfig.platform].default) {
+    	// no theme defined but a default TiApp.xml defined
+    	logger.info("---- Using the default tiapp.xml file ----");
+    	alloyCfg.global.theme = "default";
+    } else {
+    	return;
+    }
+
+    // get the filename of the app config to switch to
+	var appConfigFileName = alloyCfg.global.appConfig[event.alloyConfig.platform][alloyCfg.global.theme];
+
+	logger.info("---- Switching tiapp.xml to use " + appConfigFileName);
+
+	// get the new file
+	var configToSwitchTo = fs.readFileSync(event.dir.project + "/" + appConfigFileName, "utf-8");
+	
+	// write it to tiapp.xml
+	fs.writeFileSync(event.dir.project + "/tiapp.xml", configToSwitchTo);
+});
+ 
+//task("post:compile",function(event,logger){
+ 
+//});
