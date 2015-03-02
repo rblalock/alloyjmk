@@ -10,6 +10,8 @@ The issue I had with this is that I had to keep changing the alloy theme, then r
 
 alloy.jmk is a build file that runs before compilation of an Alloy project - it's a standard part of alloy and allows you to run tasks  after and before compilation, the latter being the perfect time to **swap the tiapp.xml with another** based on an Alloy theme!
 
+Download the jmk and drop it in your Alloy app folder (same folder as the config.json).
+
 My config.json looks like this:
 
 ```JSON
