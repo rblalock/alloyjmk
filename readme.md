@@ -12,6 +12,8 @@ alloy.jmk is a build file that runs before compilation of an Alloy project - it'
 
 Download the jmk and drop it in your Alloy app folder (same folder as the config.json).
 
+(remember to do a ti clean before each build)
+
 My config.json looks like this:
 
 ```JSON
